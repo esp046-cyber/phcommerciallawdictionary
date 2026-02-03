@@ -1,0 +1,2300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PH Commercial Law Dictionary 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #151b3d 100%);
+            color: #f0f0f0;
+            margin: 1%;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(14, 165, 233, 0.2);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a0e27 0%, #1e3a8a 50%, #0a0e27 100%);
+            padding: 12px 1%;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+            border-bottom: 2px solid #0ea5e9;
+        }
+
+        h1 {
+            font-size: 14px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            text-shadow: 0 0 10px rgba(14, 165, 233, 0.8), 0 0 20px rgba(14, 165, 233, 0.4);
+        }
+
+        .subtitle {
+            font-size: 9px;
+            color: #38bdf8;
+            font-style: italic;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
+        }
+
+        .search-container {
+            padding: 10px 1%;
+            background: rgba(15, 23, 61, 0.8);
+            border-bottom: 2px solid #0ea5e9;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 11px;
+            border: 2px solid #0ea5e9;
+            border-radius: 6px;
+            background: rgba(10, 14, 39, 0.9);
+            color: #ffffff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #searchInput:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+            background: rgba(15, 23, 61, 0.95);
+        }
+
+        #searchInput::placeholder {
+            color: #7dd3fc;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 5px 8px;
+            font-size: 9px;
+            background: rgba(14, 165, 233, 0.2);
+            color: #7dd3fc;
+            border: 1px solid #0ea5e9;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 60px;
+        }
+
+        .filter-btn:active, .filter-btn.active {
+            background: #0ea5e9;
+            color: #0a0e27;
+            transform: scale(0.95);
+            box-shadow: 0 0 10px rgba(14, 165, 233, 0.6);
+        }
+
+        .content {
+            padding: 8px 1%;
+            max-height: calc(100vh - 220px);
+            overflow-y: auto;
+        }
+
+        .term-card {
+            background: rgba(21, 27, 61, 0.7);
+            border-left: 3px solid #0ea5e9;
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+
+        .term-card:active {
+            background: rgba(21, 27, 61, 0.95);
+            transform: translateX(3px);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+            border-left-color: #38bdf8;
+        }
+
+        .term-card.hidden {
+            display: none;
+        }
+
+        .term-title {
+            font-size: 11px;
+            color: #38bdf8;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+        }
+
+        .term-category {
+            font-size: 8px;
+            color: #7dd3fc;
+            background: rgba(14, 165, 233, 0.2);
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 4px;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .term-definition {
+            font-size: 10px;
+            color: #e0f2fe;
+            line-height: 1.4;
+            margin-top: 4px;
+        }
+
+        .term-reference {
+            font-size: 8px;
+            color: #7dd3fc;
+            font-style: italic;
+            margin-top: 4px;
+            padding-top: 4px;
+            border-top: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .stats {
+            background: rgba(14, 165, 233, 0.15);
+            padding: 6px 1%;
+            text-align: center;
+            font-size: 9px;
+            color: #7dd3fc;
+            border-top: 2px solid #0ea5e9;
+            border-radius: 0 0 10px 10px;
+            text-shadow: 0 0 5px rgba(56, 189, 248, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #0a0e27 0%, #151b3d 100%);
+            margin: 20px 1%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #0ea5e9;
+            position: relative;
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.4);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #38bdf8;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(14, 165, 233, 0.2);
+            border-radius: 50%;
+            border: 1px solid #0ea5e9;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(14, 165, 233, 0.4);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.6);
+        }
+
+        .modal-title {
+            font-size: 13px;
+            color: #38bdf8;
+            margin-bottom: 10px;
+            padding-right: 40px;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        .modal-category {
+            font-size: 9px;
+            color: #7dd3fc;
+            background: rgba(14, 165, 233, 0.2);
+            padding: 3px 8px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-bottom: 10px;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .modal-definition {
+            font-size: 11px;
+            color: #f0f0f0;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .modal-reference {
+            font-size: 9px;
+            color: #7dd3fc;
+            font-style: italic;
+            padding-top: 8px;
+            border-top: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 14, 39, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 10px;
+            color: #38bdf8;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ Philippines Commercial Law Dictionary</h1>
+            <div class="subtitle">Comprehensive Legal Reference 2026 Edition</div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search legal terms..." autocomplete="off">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="contract">Contract</button>
+                <button class="filter-btn" data-category="corporate">Corporate</button>
+                <button class="filter-btn" data-category="banking">Banking</button>
+                <button class="filter-btn" data-category="property">Property</button>
+                <button class="filter-btn" data-category="tax">Tax</button>
+            </div>
+        </div>
+
+        <div class="content" id="termsList">
+            <div class="loading">Loading legal terms...</div>
+        </div>
+
+        <div class="stats">
+            <span id="statsText">Total Terms: 0 | Displayed: 0</span>
+        </div>
+    </div>
+
+    <div class="modal" id="termModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-category" id="modalCategory"></div>
+            <div class="modal-definition" id="modalDefinition"></div>
+            <div class="modal-reference" id="modalReference"></div>
+        </div>
+    </div>
+
+    <script>
+        const legalTerms = [
+            {
+                term: "Absolute Nullity",
+                category: "contract",
+                definition: "A contract that is void from the beginning and produces no legal effect whatsoever. It cannot be ratified or cured by prescription. Examples include contracts with illegal causes or objects contrary to law, morals, good customs, public order, or public policy.",
+                reference: "Civil Code of the Philippines, Art. 1409-1410"
+            },
+            {
+                term: "Acceptance",
+                category: "contract",
+                definition: "The manifestation by the offeree of his assent to the terms of the offer. It must be absolute and unqualified to create a binding contract. Under Philippine law, acceptance is effective from the time it came to the knowledge of the offeror.",
+                reference: "Civil Code of the Philippines, Art. 1319"
+            },
+            {
+                term: "Accretion",
+                category: "property",
+                definition: "The gradual and imperceptible deposit of soil through the effects of the current of waters, which becomes the property of the riparian owner. This is distinguished from avulsion, which is sudden and identifiable.",
+                reference: "Civil Code of the Philippines, Art. 457"
+            },
+            {
+                term: "Accrual Method",
+                category: "tax",
+                definition: "An accounting method that recognizes income when earned and expenses when incurred, regardless of when payment is received or made. This is the required method for most corporations in the Philippines.",
+                reference: "National Internal Revenue Code, Sec. 43"
+            },
+            {
+                term: "Actual Damages",
+                category: "contract",
+                definition: "Compensation for pecuniary loss actually suffered and duly proved. Also known as compensatory damages, these must be proven with reasonable degree of certainty and cannot be based on speculation or conjecture.",
+                reference: "Civil Code of the Philippines, Art. 2199"
+            },
+            {
+                term: "Ad Valorem Tax",
+                category: "tax",
+                definition: "A tax based on the value of property or transaction, rather than quantity or weight. Common examples include real property tax and percentage tax on gross sales.",
+                reference: "Local Government Code, Sec. 232; NIRC"
+            },
+            {
+                term: "Agency",
+                category: "contract",
+                definition: "A contract whereby a person binds himself to render some service or to do something in representation or on behalf of another, with the consent or authority of the latter. The agent acts for and in behalf of the principal.",
+                reference: "Civil Code of the Philippines, Art. 1868"
+            },
+            {
+                term: "Aleatory Contract",
+                category: "contract",
+                definition: "A contract in which one or both parties' performance depends upon an uncertain event. Insurance and gambling contracts are typical examples where the outcome is contingent on chance.",
+                reference: "Civil Code of the Philippines, Art. 2010"
+            },
+            {
+                term: "Allonge",
+                category: "banking",
+                definition: "A slip of paper attached to a negotiable instrument for the purpose of receiving further indorsements when there is no more space on the instrument itself for such indorsements.",
+                reference: "Negotiable Instruments Law, Sec. 31"
+            },
+            {
+                term: "AmortizedLoan",
+                category: "banking",
+                definition: "A loan that is repaid in equal periodic payments consisting of both principal and interest. Each payment reduces the principal balance, with interest calculated on the remaining balance.",
+                reference: "Banking regulations and commercial practice"
+            },
+            {
+                term: "Annulment",
+                category: "contract",
+                definition: "The legal action that renders a voidable contract without force and effect. Unlike void contracts, voidable contracts are valid until annulled. Grounds include vitiated consent through mistake, fraud, intimidation, or undue influence.",
+                reference: "Civil Code of the Philippines, Art. 1390-1391"
+            },
+            {
+                term: "Anti-Trust Laws",
+                category: "corporate",
+                definition: "Laws designed to promote fair competition and prevent monopolies, cartels, and anti-competitive agreements. In the Philippines, this is primarily governed by the Philippine Competition Act.",
+                reference: "Republic Act No. 10667 (Philippine Competition Act)"
+            },
+            {
+                term: "Appraisal Right",
+                category: "corporate",
+                definition: "The right of a dissenting stockholder to demand payment of the fair value of his shares in certain fundamental corporate changes, such as amendments extending corporate term, sale of substantially all assets, or merger/consolidation.",
+                reference: "Revised Corporation Code, Sec. 80"
+            },
+            {
+                term: "Articles of Incorporation",
+                category: "corporate",
+                definition: "The charter document that creates a corporation and defines its basic structure. It must contain mandatory provisions including corporate name, purpose, term of existence, authorized capital stock, and names of incorporators.",
+                reference: "Revised Corporation Code, Sec. 13-14"
+            },
+            {
+                term: "Assignment",
+                category: "contract",
+                definition: "The transfer of rights or property from one person (assignor) to another (assignee). In credit transactions, it refers to the transfer of creditor's rights without novation of the obligation.",
+                reference: "Civil Code of the Philippines, Art. 1624-1635"
+            },
+            {
+                term: "Assumed Name",
+                category: "corporate",
+                definition: "A trade name or business name used by a person or entity other than the true legal name. Registration with the Department of Trade and Industry is required for sole proprietorships and partnerships.",
+                reference: "Revised Corporation Code; DTI regulations"
+            },
+            {
+                term: "Attachment",
+                category: "property",
+                definition: "A provisional remedy by which property of a defendant is taken into legal custody as security for the satisfaction of any judgment that may be secured. Requirements and grounds are strictly construed.",
+                reference: "Rules of Court, Rule 57"
+            },
+            {
+                term: "Authority to Deduct at Source (ATDS)",
+                category: "tax",
+                definition: "A written authority issued by the Commissioner of Internal Revenue allowing a taxpayer to deduct from the selling price or consideration the amount of excise or percentage tax due.",
+                reference: "NIRC, Sec. 114; Revenue Regulations"
+            },
+            {
+                term: "Authorized Capital Stock",
+                category: "corporate",
+                definition: "The maximum number of shares that a corporation is authorized to issue as stated in its articles of incorporation. This may be increased or decreased through amendment approved by stockholders and SEC.",
+                reference: "Revised Corporation Code, Sec. 6"
+            },
+            {
+                term: "Avulsion",
+                category: "property",
+                definition: "The sudden and violent detachment and transfer of a known portion of land from one estate to another due to the current of waters. The original owner retains ownership for two years.",
+                reference: "Civil Code of the Philippines, Art. 459"
+            },
+            {
+                term: "Bad Debt",
+                category: "tax",
+                definition: "A debt that has become worthless and may be claimed as a deduction from gross income. The debt must be valid, connected with trade or business, actually ascertained to be worthless, and charged off within the taxable year.",
+                reference: "NIRC, Sec. 34(D); Revenue Regulations"
+            },
+            {
+                term: "Bailment",
+                category: "contract",
+                definition: "The delivery of personal property by one person (bailor) to another (bailee) for a specific purpose, with the understanding that the property will be returned. Examples include deposits and loans for use.",
+                reference: "Civil Code of the Philippines, Art. 1730-1753"
+            },
+            {
+                term: "Bill of Exchange",
+                category: "banking",
+                definition: "An unconditional order in writing addressed by one person to another, signed by the person giving it, requiring the person to whom it is addressed to pay on demand or at a fixed/determinable future time a sum certain in money.",
+                reference: "Negotiable Instruments Law, Sec. 126"
+            },
+            {
+                term: "Bill of Lading",
+                category: "contract",
+                definition: "A document issued by a carrier acknowledging receipt of goods for shipment. It serves as a receipt, a contract of carriage, and a document of title. It may be negotiable or non-negotiable.",
+                reference: "Code of Commerce, Art. 706-719"
+            },
+            {
+                term: "Blue Sky Laws",
+                category: "corporate",
+                definition: "State securities laws designed to protect investors from fraud in the sale of securities. In the Philippines, this is primarily governed by the Securities Regulation Code.",
+                reference: "Republic Act No. 8799 (Securities Regulation Code)"
+            },
+            {
+                term: "Board Resolution",
+                category: "corporate",
+                definition: "A formal decision or policy adopted by the board of directors of a corporation. It serves as written evidence of board action and is required for significant corporate acts.",
+                reference: "Revised Corporation Code; corporate bylaws"
+            },
+            {
+                term: "Bona Fide",
+                category: "contract",
+                definition: "In good faith; genuine; real; without fraud or deceit. Commonly used in 'bona fide purchaser for value' - one who purchases property in good faith without notice of any defect in title.",
+                reference: "General legal principle"
+            },
+            {
+                term: "Book Value",
+                category: "corporate",
+                definition: "The net value of a company's assets as shown on its balance sheet, calculated by subtracting total liabilities from total assets. On a per-share basis, it equals shareholders' equity divided by outstanding shares.",
+                reference: "Accounting and corporate valuation principles"
+            },
+            {
+                term: "Breach of Contract",
+                category: "contract",
+                definition: "The failure, without legal excuse, to perform any promise which forms the whole or part of a contract. May be actual (present) or anticipatory (future). Remedies include specific performance, rescission, and damages.",
+                reference: "Civil Code of the Philippines, Art. 1159, 1167"
+            },
+            {
+                term: "Bureau of Internal Revenue (BIR)",
+                category: "tax",
+                definition: "The government agency under the Department of Finance responsible for assessment and collection of all national internal revenue taxes, fees and charges. Headed by the Commissioner of Internal Revenue.",
+                reference: "NIRC, Sec. 2; Executive Order No. 127"
+            },
+            {
+                term: "Business Judgment Rule",
+                category: "corporate",
+                definition: "A legal principle that courts will not interfere with business decisions made by directors in good faith, within their authority, and in the corporation's best interest, even if the decision later proves disadvantageous.",
+                reference: "Revised Corporation Code, jurisprudence"
+            },
+            {
+                term: "Buyer in Due Course",
+                category: "property",
+                definition: "One who buys property in good faith, for value, and without notice of any defect in the seller's title. Such buyer acquires good title even from a seller with defective title.",
+                reference: "Civil Code of the Philippines, Art. 1544; jurisprudence"
+            },
+            {
+                term: "By-Laws",
+                category: "corporate",
+                definition: "The rules and regulations governing the internal affairs of a corporation, adopted by the corporation itself. They supplement the articles of incorporation and cover matters like stockholders' meetings, board elections, and officer duties.",
+                reference: "Revised Corporation Code, Sec. 45-47"
+            },
+            {
+                term: "Capital Gains Tax",
+                category: "tax",
+                definition: "A tax imposed on the gains presumed to have been realized from the sale, exchange, or disposition of capital assets. For real property located in the Philippines, a final tax of 6% is imposed on the gross selling price or fair market value.",
+                reference: "NIRC, Sec. 24(D), 27(D)"
+            },
+            {
+                term: "Cartel",
+                category: "corporate",
+                definition: "An agreement between competing entities to restrict competition by controlling prices, production, or market allocation. Prohibited under Philippine competition law as an anti-competitive agreement.",
+                reference: "RA 10667 (Philippine Competition Act), Sec. 14"
+            },
+            {
+                term: "Causa",
+                category: "contract",
+                definition: "The essential reason or purpose which impels the contracting parties to enter into the contract. For onerous contracts, it is the prestation or promise of a thing or service by the other party.",
+                reference: "Civil Code of the Philippines, Art. 1350"
+            },
+            {
+                term: "Cease and Desist Order (CDO)",
+                category: "corporate",
+                definition: "An order issued by regulatory authorities directing a person or entity to immediately stop engaging in specified activities. Commonly issued by the SEC against entities conducting securities activities without registration.",
+                reference: "Securities Regulation Code, Sec. 64"
+            },
+            {
+                term: "Certificate of Stock",
+                category: "corporate",
+                definition: "Written instrument evidencing a shareholder's ownership of shares in a corporation. It states the number of shares, the shareholder's name, and is signed by authorized corporate officers.",
+                reference: "Revised Corporation Code, Sec. 63"
+            },
+            {
+                term: "Chattel Mortgage",
+                category: "property",
+                definition: "A contract by which personal property is recorded as security for the performance of an obligation. If the obligation is not fulfilled, the creditor can foreclose and sell the property to satisfy the debt.",
+                reference: "Chattel Mortgage Law (Act No. 1508)"
+            },
+            {
+                term: "Check",
+                category: "banking",
+                definition: "A bill of exchange drawn on a bank payable on demand. The drawer orders the drawee bank to pay a specified sum to the payee. It is the most common form of negotiable instrument.",
+                reference: "Negotiable Instruments Law, Sec. 185"
+            },
+            {
+                term: "Close Corporation",
+                category: "corporate",
+                definition: "A corporation whose articles of incorporation provide that: (1) all issued stock shall be held by not more than 20 persons, (2) all stock shall be subject to transfer restrictions, and (3) the corporation shall not list its stock in any stock exchange.",
+                reference: "Revised Corporation Code, Sec. 95-104"
+            },
+            {
+                term: "Collateral",
+                category: "banking",
+                definition: "Property or assets pledged by a borrower to secure a loan. If the borrower defaults, the lender has the right to seize and sell the collateral to recover the debt.",
+                reference: "Civil Code, Art. 2085-2123; banking regulations"
+            },
+            {
+                term: "Commissioner of Internal Revenue",
+                category: "tax",
+                definition: "The head of the Bureau of Internal Revenue with the power to interpret tax laws, decide disputed assessments, and make refunds of erroneously collected taxes. Decisions are appealable to the Court of Tax Appeals.",
+                reference: "NIRC, Sec. 4, 7"
+            },
+            {
+                term: "Compensatio Morae",
+                category: "contract",
+                definition: "A principle where delay by one party is compensated by delay of the other party. In reciprocal obligations, neither party incurs delay if the other does not comply or is not ready to comply in proper manner.",
+                reference: "Civil Code of the Philippines, Art. 1169"
+            },
+            {
+                term: "Compromise",
+                category: "tax",
+                definition: "An agreement between the taxpayer and BIR for a reduced settlement of tax liabilities. The Commissioner may compromise the payment of internal revenue taxes when there is doubt on collectibility or validity of the assessment.",
+                reference: "NIRC, Sec. 204"
+            },
+            {
+                term: "Condonation",
+                category: "contract",
+                definition: "The gratuitous abandonment by a creditor of his right against the debtor. It is essentially a donation and must comply with formalities for donations, including acceptance by the debtor.",
+                reference: "Civil Code of the Philippines, Art. 1270-1273"
+            },
+            {
+                term: "Consignation",
+                category: "contract",
+                definition: "The act of depositing the thing due with the court or judicial authorities when the creditor refuses without just cause to accept payment. It generally requires prior tender of payment and is a mode of extinguishing obligations.",
+                reference: "Civil Code of the Philippines, Art. 1256-1261"
+            },
+            {
+                term: "Consolidation",
+                category: "corporate",
+                definition: "The union of two or more corporations whereby a new corporation is created and the consolidating corporations cease to exist. Distinguished from merger where one corporation survives and absorbs the others.",
+                reference: "Revised Corporation Code, Sec. 75-78"
+            },
+            {
+                term: "Constructive Delivery",
+                category: "property",
+                definition: "Delivery not actual but implied by law, such as by the execution of a public instrument, delivery of keys, or symbolic delivery. It has the same legal effect as physical delivery.",
+                reference: "Civil Code of the Philippines, Art. 1497-1501"
+            },
+            {
+                term: "Continuing Guaranty",
+                category: "banking",
+                definition: "A guaranty that covers future transactions or a series of obligations. It remains in effect until revoked, but revocation does not affect obligations already incurred.",
+                reference: "Civil Code of the Philippines, Art. 2053; jurisprudence"
+            },
+            {
+                term: "Contra Preferentem Rule",
+                category: "contract",
+                definition: "The rule that ambiguities in a contract should be construed against the party who drafted it, particularly against the party who caused the ambiguity. Commonly applied in insurance contracts.",
+                reference: "Civil Code of the Philippines, Art. 1377; jurisprudence"
+            },
+            {
+                term: "Contract of Adhesion",
+                category: "contract",
+                definition: "A contract prepared by one party and signed by the other on a 'take it or leave it' basis, with no opportunity for negotiation. Strictly construed against the party who prepared it.",
+                reference: "Civil Code principles; jurisprudence"
+            },
+            {
+                term: "Corporate Opportunity Doctrine",
+                category: "corporate",
+                definition: "The principle that corporate directors and officers cannot take personal advantage of business opportunities that belong to the corporation. They must first offer such opportunities to the corporation.",
+                reference: "Revised Corporation Code, Sec. 31; jurisprudence"
+            },
+            {
+                term: "Corporate Rehabilitation",
+                category: "corporate",
+                definition: "A court-supervised process to restore and continue the operations of a financially distressed corporation. Governed by the Financial Rehabilitation and Insolvency Act (FRIA).",
+                reference: "RA 10142 (FRIA); Interim Rules on Corporate Rehabilitation"
+            },
+            {
+                term: "Corporate Veil",
+                category: "corporate",
+                definition: "The legal principle that separates the corporate entity from its stockholders and directors. Courts may pierce this veil when the corporate fiction is used to defeat public convenience, justify wrong, or perpetrate fraud.",
+                reference: "Revised Corporation Code, jurisprudence"
+            },
+            {
+                term: "Creditable Withholding Tax",
+                category: "tax",
+                definition: "Tax withheld at source from certain income payments, which can be credited against the recipient's income tax liability. Rates vary depending on the type of income.",
+                reference: "NIRC, Sec. 57-58; Revenue Regulations"
+            },
+            {
+                term: "Cross-Default Clause",
+                category: "banking",
+                definition: "A provision in a loan agreement that triggers default if the borrower defaults on another loan obligation. Protects lenders by allowing them to act early when financial trouble appears.",
+                reference: "Banking practice and commercial contracts"
+            },
+            {
+                term: "Dacion en Pago",
+                category: "contract",
+                definition: "The delivery and transmission of ownership of a thing by the debtor to the creditor as an accepted equivalent of the performance of an obligation. Also called payment by cession.",
+                reference: "Civil Code of the Philippines, Art. 1245"
+            },
+            {
+                term: "Damnum Absque Injuria",
+                category: "contract",
+                definition: "Loss or damage without legal injury. A situation where a person suffers harm but has no legal recourse because the act causing harm was not wrongful.",
+                reference: "General legal principle"
+            },
+            {
+                term: "Declaration of Dividend",
+                category: "corporate",
+                definition: "The formal act by the board of directors determining that a dividend shall be paid to stockholders. Once declared and communicated, it creates a debt owed by the corporation to its stockholders.",
+                reference: "Revised Corporation Code, Sec. 42; jurisprudence"
+            },
+            {
+                term: "Deed of Assignment",
+                category: "property",
+                definition: "A legal document transferring rights, property, or interest from one party (assignor) to another (assignee). Commonly used in credit transfers, intellectual property, and real estate transactions.",
+                reference: "Civil Code of the Philippines, Art. 1624-1635"
+            },
+            {
+                term: "Deed of Sale",
+                category: "property",
+                definition: "A written document evidencing the transfer of ownership of property from seller to buyer. For real property, it must be in a public document to be valid for registration purposes.",
+                reference: "Civil Code of the Philippines, Art. 1458, 1874"
+            },
+            {
+                term: "Deficiency Tax",
+                category: "tax",
+                definition: "The additional tax assessment issued by the BIR when the amount already paid is less than the amount due based on tax returns or investigation. Interest and penalties are imposed on deficiency taxes.",
+                reference: "NIRC, Sec. 248-249"
+            },
+            {
+                term: "Deposit",
+                category: "contract",
+                definition: "A contract whereby a person receives property from another with the obligation to safely keep it and return it. May be judicial (by court order) or extrajudicial (voluntary).",
+                reference: "Civil Code of the Philippines, Art. 1962-1998"
+            },
+            {
+                term: "Derivative Suit",
+                category: "corporate",
+                definition: "An action brought by a stockholder on behalf of the corporation to enforce corporate rights when the corporation, through its directors, fails or refuses to act. The corporation is the real party in interest.",
+                reference: "Revised Corporation Code, Sec. 36; Rules of Court"
+            },
+            {
+                term: "Dilution",
+                category: "corporate",
+                definition: "The decrease in existing stockholders' ownership percentage due to the issuance of new shares. May occur through stock dividends, new subscriptions, or conversion of convertible securities.",
+                reference: "Corporate finance principles"
+            },
+            {
+                term: "Discount",
+                category: "banking",
+                definition: "The interest deducted in advance from a loan. In negotiable instruments, it is the practice of purchasing notes or bills before maturity at less than face value.",
+                reference: "Negotiable Instruments Law; banking practice"
+            },
+            {
+                term: "Dissolution",
+                category: "corporate",
+                definition: "The termination of the legal existence of a corporation. May be voluntary (by stockholder vote) or involuntary (by SEC order or court judgment). Followed by liquidation and winding up of corporate affairs.",
+                reference: "Revised Corporation Code, Sec. 117-123"
+            },
+            {
+                term: "Documentary Stamp Tax (DST)",
+                category: "tax",
+                definition: "An excise tax imposed on documents, instruments, loan agreements, and papers evidencing acceptance, assignment, sale or transfer of obligations, rights or property. Rates depend on the nature of the document.",
+                reference: "NIRC, Title VII"
+            },
+            {
+                term: "Domicile",
+                category: "contract",
+                definition: "The place where a person has his true, fixed, and permanent home and principal establishment to which he intends to return. Relevant for venue, jurisdiction, and taxation purposes.",
+                reference: "Civil Code of the Philippines, Art. 50-52"
+            },
+            {
+                term: "Dominant Estate",
+                category: "property",
+                definition: "In an easement, the property that enjoys the benefit of the easement. Correlatively, the servient estate is the property that bears the burden.",
+                reference: "Civil Code of the Philippines, Art. 613-619"
+            },
+            {
+                term: "Donor's Tax",
+                category: "tax",
+                definition: "A tax imposed on the transfer of property by gift. Exempt threshold is P250,000 per year. Tax rates are progressive based on the value of the net gift.",
+                reference: "NIRC, Sec. 99-101"
+            },
+            {
+                term: "Draft",
+                category: "banking",
+                definition: "An unconditional written order by one party (drawer) directing another (drawee) to pay money to a third party (payee). A bill of exchange is a type of draft.",
+                reference: "Negotiable Instruments Law, Sec. 126"
+            },
+            {
+                term: "Due Diligence",
+                category: "corporate",
+                definition: "The comprehensive appraisal of a business undertaken by a prospective buyer to evaluate assets, liabilities, commercial potential, and legal compliance. Essential in mergers, acquisitions, and investments.",
+                reference: "Corporate practice; Securities Regulation Code"
+            },
+            {
+                term: "Earnest Money",
+                category: "contract",
+                definition: "Money given by the buyer to the seller as proof of the perfection of the contract of sale and as part of the purchase price. It is distinct from option money.",
+                reference: "Civil Code of the Philippines, Art. 1482"
+            },
+            {
+                term: "Easement",
+                category: "property",
+                definition: "A real right on another's property, corporeal and immovable, by virtue of which the owner must refrain from doing or allow someone else to do something on his property. Examples include right of way and party wall.",
+                reference: "Civil Code of the Philippines, Art. 613-657"
+            },
+            {
+                term: "Eminent Domain",
+                category: "property",
+                definition: "The right of the State to expropriate private property for public use upon payment of just compensation. Governed by the principle that no person shall be deprived of property without due process.",
+                reference: "Constitution, Art. III, Sec. 9; Local Government Code"
+            },
+            {
+                term: "Escrow",
+                category: "contract",
+                definition: "A conditional delivery of property or funds to a third party to be held until specified conditions are fulfilled. Common in real estate transactions and business acquisitions.",
+                reference: "Civil Code principles; commercial practice"
+            },
+            {
+                term: "Estate Tax",
+                category: "tax",
+                definition: "A tax imposed on the transfer of the estate of a deceased person, whether resident or non-resident. Currently imposed at 6% on the net estate exceeding P5,000,000.",
+                reference: "NIRC, Sec. 84-94; RA 10963 (TRAIN Law)"
+            },
+            {
+                term: "Estoppel",
+                category: "contract",
+                definition: "The principle that a person is barred from denying or asserting a fact contrary to what has been established as the truth, either by his own actions or by judicial determination.",
+                reference: "Rules of Court, Rule 131; Civil Code"
+            },
+            {
+                term: "Excise Tax",
+                category: "tax",
+                definition: "An indirect tax imposed on the manufacture, sale or consumption of specific goods. In the Philippines, it applies to alcohol, tobacco, petroleum products, automobiles, and non-essential services.",
+                reference: "NIRC, Title VI"
+            },
+            {
+                term: "Executive Committee",
+                category: "corporate",
+                definition: "A committee of the board of directors authorized to act on behalf of the board on certain matters when the board is not in session. Its powers are defined in the by-laws but subject to limitations.",
+                reference: "Revised Corporation Code, Sec. 35"
+            },
+            {
+                term: "Expungement",
+                category: "corporate",
+                definition: "The removal or striking out of matters from corporate records. In meetings, refers to deletion of improper or offensive remarks from minutes.",
+                reference: "Corporate practice; parliamentary procedure"
+            },
+            {
+                term: "Extraordinary Dividend",
+                category: "corporate",
+                definition: "A non-recurring, one-time dividend payment made by a corporation, usually when it has accumulated excess cash or realizes extraordinary gains. Distinguished from regular periodic dividends.",
+                reference: "Corporate finance principles"
+            },
+            {
+                term: "Fair Market Value (FMV)",
+                category: "tax",
+                definition: "The price at which property would change hands between a willing buyer and willing seller, both having reasonable knowledge of relevant facts and under no compulsion to buy or sell. Used for tax assessment purposes.",
+                reference: "NIRC; Revenue Regulations"
+            },
+            {
+                term: "Final Withholding Tax",
+                category: "tax",
+                definition: "Tax withheld at source which constitutes full and final payment of income tax. The recipient can no longer claim deduction or credit for this tax. Applied to certain passive income like interest and dividends.",
+                reference: "NIRC, Sec. 57A"
+            },
+            {
+                term: "Fiscal Year",
+                category: "tax",
+                definition: "A twelve-month accounting period used for tax and financial reporting. May differ from the calendar year. Corporations can choose their fiscal year subject to BIR approval.",
+                reference: "NIRC, Sec. 22(BB); Revenue Regulations"
+            },
+            {
+                term: "Force Majeure",
+                category: "contract",
+                definition: "An event or effect that cannot be anticipated or controlled, such as acts of God, war, or government action. Relieves parties from liability for non-performance of contractual obligations.",
+                reference: "Civil Code of the Philippines, Art. 1174; commercial contracts"
+            },
+            {
+                term: "Foreclosure",
+                category: "property",
+                definition: "The legal process by which a mortgagee or secured creditor forces the sale of mortgaged property to satisfy an unpaid debt. May be judicial (through court) or extrajudicial (by public auction).",
+                reference: "Act No. 3135; Rules of Court, Rule 68"
+            },
+            {
+                term: "Foreign Corporation",
+                category: "corporate",
+                definition: "A corporation formed, organized or existing under laws other than those of the Philippines. Must obtain a license from the SEC to transact business in the Philippines.",
+                reference: "Revised Corporation Code, Sec. 139-145"
+            },
+            {
+                term: "Franchise Tax",
+                category: "tax",
+                definition: "A tax imposed for the privilege of exercising a franchise. Some entities like PAGCOR and PCSO pay franchise tax in lieu of all other taxes.",
+                reference: "NIRC, Sec. 119; special franchise laws"
+            },
+            {
+                term: "Fraudulent Conveyance",
+                category: "property",
+                definition: "A transfer of property made with intent to defraud creditors or to delay or hinder them in collecting their claims. Such transfers may be rescinded.",
+                reference: "Civil Code of the Philippines, Art. 1381-1389"
+            },
+            {
+                term: "Free Patent",
+                category: "property",
+                definition: "A grant of public land to a Filipino citizen who has continuously occupied and cultivated the land for the prescribed period. Different from homestead patent.",
+                reference: "Public Land Act (CA 141), Sec. 44"
+            },
+            {
+                term: "Garnishment",
+                category: "contract",
+                definition: "A remedy whereby property, money, or credits of a debtor in possession of another are applied to payment of debt to the creditor. Common in executing money judgments.",
+                reference: "Rules of Court, Rule 39, Sec. 9"
+            },
+            {
+                term: "General Assignment",
+                category: "property",
+                definition: "The transfer of all or substantially all of a debtor's property to a trustee or assignee for the benefit of creditors. May constitute an act of insolvency.",
+                reference: "Civil Code; Insolvency Law"
+            },
+            {
+                term: "Going Concern Value",
+                category: "corporate",
+                definition: "The value of a business as an operating entity with future earning capacity, as opposed to its liquidation value. Important in business valuation and asset appraisal.",
+                reference: "Accounting and valuation principles"
+            },
+            {
+                term: "Good Faith",
+                category: "contract",
+                definition: "Honesty of intention and absence of intention to defraud or seek unconscionable advantage. In contracts, parties must act with good faith in performance and observance.",
+                reference: "Civil Code of the Philippines, Art. 1159, 1170"
+            },
+            {
+                term: "Goodwill",
+                category: "corporate",
+                definition: "An intangible asset representing the excess value of a business over its identifiable net assets, often arising from reputation, customer relationships, and brand value. Important in business acquisitions.",
+                reference: "Accounting standards; taxation rules"
+            },
+            {
+                term: "Gross Income",
+                category: "tax",
+                definition: "All income derived from whatever source, including compensation for services, business income, gains from property dealings, interest, rents, royalties, dividends, and other income.",
+                reference: "NIRC, Sec. 32"
+            },
+            {
+                term: "Guaranty",
+                category: "contract",
+                definition: "A contract where a person (guarantor) binds himself to the creditor to fulfill the obligation of the principal debtor in case the latter should fail to do so. The guarantor's liability is subsidiary.",
+                reference: "Civil Code of the Philippines, Art. 2047-2084"
+            },
+            {
+                term: "Holding Company",
+                category: "corporate",
+                definition: "A corporation that owns sufficient stock in another corporation to control its management and operations. May be a pure holding company (no business operations) or mixed holding company.",
+                reference: "Revised Corporation Code; Securities Regulation Code"
+            },
+            {
+                term: "Holder in Due Course",
+                category: "banking",
+                definition: "A holder who has taken a negotiable instrument complete and regular on its face, before overdue, in good faith, for value, and without notice of any infirmity. Enjoys special rights and protections.",
+                reference: "Negotiable Instruments Law, Sec. 52"
+            },
+            {
+                term: "Hypothecation",
+                category: "banking",
+                definition: "The pledging of property as security for a debt without transfer of title or possession. Common in ship mortgages and certain types of secured lending.",
+                reference: "Code of Commerce; banking practice"
+            },
+            {
+                term: "Impairment of Capital",
+                category: "corporate",
+                definition: "A situation where a corporation's total assets are less than the sum of its total liabilities plus stated capital. Restricts the corporation's ability to declare dividends.",
+                reference: "Revised Corporation Code, Sec. 42; accounting standards"
+            },
+            {
+                term: "Implied Trust",
+                category: "property",
+                definition: "A trust created by operation of law and inferred from the acts or circumstances of the parties. Includes resulting trusts and constructive trusts.",
+                reference: "Civil Code of the Philippines, Art. 1448-1456"
+            },
+            {
+                term: "Impossibility of Performance",
+                category: "contract",
+                definition: "A ground for extinguishing obligations when the thing to be delivered perishes or the service becomes legally or physically impossible without the debtor's fault.",
+                reference: "Civil Code of the Philippines, Art. 1266, 1268"
+            },
+            {
+                term: "Income Tax",
+                category: "tax",
+                definition: "A tax on net income. For individuals: progressive rates from 0% to 35%. For corporations: generally 25% (20% for small domestic corporations). Some income subject to special rates.",
+                reference: "NIRC, Sec. 24, 27, 28"
+            },
+            {
+                term: "Incorporators",
+                category: "corporate",
+                definition: "Natural persons, not less than five but not more than fifteen, who execute and sign the articles of incorporation. Distinct from promoters who organize the corporation before incorporation.",
+                reference: "Revised Corporation Code, Sec. 10"
+            },
+            {
+                term: "Indemnity",
+                category: "contract",
+                definition: "An obligation to compensate another for loss, damage or liability incurred. In contracts, parties may agree on indemnification clauses for specific risks.",
+                reference: "Civil Code of the Philippines, Art. 2047, 2162"
+            },
+            {
+                term: "Indorsement",
+                category: "banking",
+                definition: "The act of a payee, drawee, or holder of a negotiable instrument writing his name on the back of the instrument with or without additional words. Transfers ownership and may guarantee payment.",
+                reference: "Negotiable Instruments Law, Sec. 63-67"
+            },
+            {
+                term: "Initial Public Offering (IPO)",
+                category: "corporate",
+                definition: "The first sale of stock by a private company to the public. Requires registration with the SEC and compliance with full disclosure requirements under the Securities Regulation Code.",
+                reference: "RA 8799 (Securities Regulation Code); SEC rules"
+            },
+            {
+                term: "Injunction",
+                category: "property",
+                definition: "A court order requiring a party to do or refrain from doing specific acts. May be preliminary (during pendency of action) or permanent (final judgment). Requires showing of clear legal right.",
+                reference: "Rules of Court, Rule 58"
+            },
+            {
+                term: "Insider Trading",
+                category: "corporate",
+                definition: "The buying or selling of securities by persons who have access to material non-public information. Prohibited and subject to criminal and civil sanctions under the Securities Regulation Code.",
+                reference: "RA 8799, Sec. 27"
+            },
+            {
+                term: "Insolvency",
+                category: "corporate",
+                definition: "The inability of a debtor to pay debts as they become due in the ordinary course of business. Grounds for involuntary insolvency proceedings or corporate rehabilitation.",
+                reference: "RA 10142 (FRIA)"
+            },
+            {
+                term: "Installment",
+                category: "contract",
+                definition: "Partial payment of a debt at regular intervals. In sales, buyer pays purchase price in parts. Default may give rise to rescission or foreclosure depending on the contract.",
+                reference: "Civil Code of the Philippines, Art. 1484"
+            },
+            {
+                term: "Intellectual Property Rights",
+                category: "property",
+                definition: "Legal rights that result from intellectual activity in industrial, scientific, literary and artistic fields. Includes patents, trademarks, copyrights, and trade secrets.",
+                reference: "RA 8293 (Intellectual Property Code)"
+            },
+            {
+                term: "Interest",
+                category: "contract",
+                definition: "The compensation paid for the use or forbearance of money, goods or credits. May be conventional (agreed upon) or legal (imposed by law). Subject to limitations against usury.",
+                reference: "Civil Code of the Philippines, Art. 1956; RA 7653"
+            },
+            {
+                term: "Interim Dividend",
+                category: "corporate",
+                definition: "A dividend declared and paid before the annual general meeting and before annual financial statements are finalized. May be declared by the board based on unrestricted retained earnings.",
+                reference: "Revised Corporation Code, Sec. 42"
+            },
+            {
+                term: "Intestate Succession",
+                category: "property",
+                definition: "The transfer of property of a deceased person according to law when the person died without a valid will, or when the will does not dispose of all property.",
+                reference: "Civil Code of the Philippines, Art. 960-1014"
+            },
+            {
+                term: "Intra Vires",
+                category: "corporate",
+                definition: "Acts or contracts within the corporate powers expressly or impliedly granted by law or the articles of incorporation. Contrasted with ultra vires acts.",
+                reference: "Revised Corporation Code"
+            },
+            {
+                term: "Inventory Tax",
+                category: "tax",
+                definition: "A local tax imposed by LGUs on businesses based on the value of inventories as of certain dates. Rates and mechanics vary by local ordinance.",
+                reference: "Local Government Code, Sec. 143"
+            },
+            {
+                term: "Investment Company",
+                category: "corporate",
+                definition: "An entity engaged primarily in investing, reinvesting or trading in securities. Includes mutual funds, unit investment trust funds, and similar investment vehicles. Subject to special SEC regulation.",
+                reference: "Investment Company Act; Securities Regulation Code"
+            },
+            {
+                term: "Joint and Several Obligation",
+                category: "contract",
+                definition: "An obligation where each debtor is liable for the entire obligation, and payment by one extinguishes the obligation as to all. The creditor may demand payment from one or all debtors.",
+                reference: "Civil Code of the Philippines, Art. 1207-1222"
+            },
+            {
+                term: "Joint Venture",
+                category: "corporate",
+                definition: "An association of persons or entities formed to undertake a specific business transaction or project. May be incorporated or unincorporated, and is generally limited in duration and scope.",
+                reference: "Civil Code; commercial practice"
+            },
+            {
+                term: "Judicial Admission",
+                category: "contract",
+                definition: "A statement made by a party in the course of judicial proceedings which is conclusive and does not require proof. Binds the party making it and cannot be contradicted without court permission.",
+                reference: "Rules of Court, Rule 129"
+            },
+            {
+                term: "Jurat",
+                category: "contract",
+                definition: "The certificate of a notarial officer that an affidavit or deposition was sworn to before him. Essential part of notarized documents.",
+                reference: "Rules on Notarial Practice"
+            },
+            {
+                term: "Laches",
+                category: "contract",
+                definition: "The failure to assert a right for an unreasonable length of time, warranting a presumption that the party has abandoned it. An equitable defense based on delay.",
+                reference: "Civil Code principles; jurisprudence"
+            },
+            {
+                term: "Lease",
+                category: "property",
+                definition: "A contract whereby one party (lessor) gives another (lessee) the temporary use and enjoyment of property for a price certain. May be of things or of work and service.",
+                reference: "Civil Code of the Philippines, Art. 1643-1688"
+            },
+            {
+                term: "Legal Capacity",
+                category: "contract",
+                definition: "The competence to enter into binding contracts. All persons have capacity except those declared by law to be incapacitated, such as minors, insane persons, and others specially disqualified.",
+                reference: "Civil Code of the Philippines, Art. 1327"
+            },
+            {
+                term: "Legal Holiday",
+                category: "contract",
+                definition: "Days designated by law when certain acts need not be performed and certain obligations are suspended. Important for computing periods and due dates.",
+                reference: "Administrative Code; Presidential Proclamations"
+            },
+            {
+                term: "Legal Redemption",
+                category: "property",
+                definition: "The right of specific persons to substitute themselves in place of the buyer by reimbursing the price and expenses. Applicable in sales of co-owned property, adjacent urban land, and other specific cases.",
+                reference: "Civil Code of the Philippines, Art. 1619-1633"
+            },
+            {
+                term: "Letter of Credit",
+                category: "banking",
+                definition: "A written undertaking by a bank (issuing bank) to pay a seller (beneficiary) upon presentation of documents complying with the credit's terms. Common in international trade transactions.",
+                reference: "UCP 600; banking practice"
+            },
+            {
+                term: "Leverage",
+                category: "corporate",
+                definition: "The use of borrowed funds to finance operations or investments with the expectation that income from the investment will exceed the cost of borrowing. Measured by debt-to-equity ratio.",
+                reference: "Corporate finance principles"
+            },
+            {
+                term: "Levy",
+                category: "tax",
+                definition: "The assessment or imposition of a tax. Also refers to seizure of property to satisfy a judgment or tax liability.",
+                reference: "NIRC; Local Government Code"
+            },
+            {
+                term: "Liability",
+                category: "contract",
+                definition: "Legal responsibility for one's acts or omissions. In accounting, debts and obligations owed to others. May be contractual, quasi-contractual, delictual, or quasi-delictual.",
+                reference: "Civil Code of the Philippines, Art. 1156-1304"
+            },
+            {
+                term: "Lien",
+                category: "property",
+                definition: "A legal claim or charge on property as security for payment of a debt or obligation. May arise by agreement, by operation of law, or by court order.",
+                reference: "Civil Code of the Philippines, Art. 2241-2243"
+            },
+            {
+                term: "Limited Liability",
+                category: "corporate",
+                definition: "The principle that stockholders are liable only to the extent of their capital contribution. Their personal assets cannot be reached to satisfy corporate debts, except when the corporate veil is pierced.",
+                reference: "Revised Corporation Code, Sec. 2"
+            },
+            {
+                term: "Liquidated Damages",
+                category: "contract",
+                definition: "An amount stipulated by the parties as damages for breach of contract. Courts may reduce if unconscionable or increase if iniquitous or insufficient.",
+                reference: "Civil Code of the Philippines, Art. 2226-2228"
+            },
+            {
+                term: "Liquidation",
+                category: "corporate",
+                definition: "The process of winding up a corporation's affairs, collecting assets, paying debts, and distributing remaining assets to stockholders. Follows dissolution.",
+                reference: "Revised Corporation Code, Sec. 121-135"
+            },
+            {
+                term: "Lis Pendens",
+                category: "property",
+                definition: "Notice of pending litigation involving title to or right of possession of real property. Binds the whole world, and any buyer or encumbrancer takes subject to the outcome of the litigation.",
+                reference: "Rules of Court, Rule 13, Sec. 14; Property Registration Decree"
+            },
+            {
+                term: "Loan",
+                category: "contract",
+                definition: "A contract where one party delivers money or consumable thing to another who agrees to pay the same amount of the same kind and quality. May be commodatum (gratuitous use) or mutuum (consumption).",
+                reference: "Civil Code of the Philippines, Art. 1933-1961"
+            },
+            {
+                term: "Majority Stockholders",
+                category: "corporate",
+                definition: "Stockholders who own more than 50% of the voting stock. They control the corporation but owe fiduciary duties to minority stockholders and cannot oppress or defraud them.",
+                reference: "Revised Corporation Code; jurisprudence"
+            },
+            {
+                term: "Manifestation of Assent",
+                category: "contract",
+                definition: "The outward expression of agreement to contract terms. May be express (written or oral) or implied (conduct). Essential element for contract perfection.",
+                reference: "Civil Code of the Philippines, Art. 1319"
+            },
+            {
+                term: "Margin",
+                category: "banking",
+                definition: "The difference between the selling price and cost. In securities trading, it refers to the amount of equity required when buying securities on credit. Also refers to collateral for loan.",
+                reference: "Securities Regulation Code; banking practice"
+            },
+            {
+                term: "Material Adverse Change",
+                category: "corporate",
+                definition: "A significant negative change in business operations, financial condition, or assets that may trigger contractual remedies or allow parties to terminate agreements, especially in M&A transactions.",
+                reference: "Commercial contracts; M&A practice"
+            },
+            {
+                term: "Merger",
+                category: "corporate",
+                definition: "The absorption of one or more corporations by another existing corporation which retains its identity. The absorbed corporations cease to exist. Requires approval of stockholders and SEC.",
+                reference: "Revised Corporation Code, Sec. 75-78"
+            },
+            {
+                term: "Minority Interest",
+                category: "corporate",
+                definition: "The portion of subsidiaries' equity not owned by the parent company. In accounting, represents shareholders who own less than 50% of subsidiary shares.",
+                reference: "Accounting standards"
+            },
+            {
+                term: "Minutes",
+                category: "corporate",
+                definition: "The official written record of proceedings of stockholders' or directors' meetings. Must be kept in the corporate records and are prima facie evidence of matters stated therein.",
+                reference: "Revised Corporation Code, Sec. 73-74"
+            },
+            {
+                term: "Moral Damages",
+                category: "contract",
+                definition: "Compensation for physical suffering, mental anguish, fright, serious anxiety, wounded feelings, and similar injury. Awarded in cases specified by law, including breach of contract in bad faith.",
+                reference: "Civil Code of the Philippines, Art. 2217-2220"
+            },
+            {
+                term: "Mortgage",
+                category: "property",
+                definition: "A contract whereby property is given as security for payment of a debt or performance of an obligation. Real mortgage covers immovables; chattel mortgage covers movables.",
+                reference: "Civil Code of the Philippines, Art. 2085-2123; Act 1508"
+            },
+            {
+                term: "Mutuality of Contracts",
+                category: "contract",
+                definition: "The principle that contracts are binding on both contracting parties, and neither may unilaterally revoke or modify the contract without the other's consent.",
+                reference: "Civil Code of the Philippines, Art. 1308"
+            },
+            {
+                term: "Negotiable Instrument",
+                category: "banking",
+                definition: "A written instrument containing an unconditional promise or order to pay a sum certain in money, payable on demand or at a definite time, to order or bearer. Includes checks, promissory notes, and bills of exchange.",
+                reference: "Negotiable Instruments Law, Sec. 1"
+            },
+            {
+                term: "Nominal Damages",
+                category: "contract",
+                definition: "A small amount awarded when a legal right has been violated but no substantial loss or injury was sustained. Vindicates or recognizes the right.",
+                reference: "Civil Code of the Philippines, Art. 2221"
+            },
+            {
+                term: "Non-Stock Corporation",
+                category: "corporate",
+                definition: "A corporation organized for charitable, religious, educational, professional, cultural, fraternal, literary, scientific, social, civic, or similar purposes without profit distribution to members.",
+                reference: "Revised Corporation Code, Sec. 86-94"
+            },
+            {
+                term: "Novation",
+                category: "contract",
+                definition: "The extinguishment of an obligation by the substitution of a new one. May involve change of object, principal conditions, or substitution of debtor or creditor. Requires clear intent to extinguish.",
+                reference: "Civil Code of the Philippines, Art. 1291-1304"
+            },
+            {
+                term: "Obligation",
+                category: "contract",
+                definition: "A juridical necessity to give, to do, or not to do. Arises from law, contracts, quasi-contracts, delicts, or quasi-delicts.",
+                reference: "Civil Code of the Philippines, Art. 1156"
+            },
+            {
+                term: "Obstruction of Justice",
+                category: "corporate",
+                definition: "Any act that prevents, obstructs, impedes or defeats the administration of justice. In securities regulation, includes destroying documents or giving false testimony to investigators.",
+                reference: "Revised Penal Code; Securities Regulation Code"
+            },
+            {
+                term: "Option Contract",
+                category: "contract",
+                definition: "A contract granting a person the privilege to buy or sell within an agreed period and at a determined price. The option is separate and distinct from the contract that may arise from its exercise.",
+                reference: "Civil Code of the Philippines, Art. 1479"
+            },
+            {
+                term: "Option Money",
+                category: "contract",
+                definition: "Separate consideration for the option. Distinct from earnest money which is part of purchase price. Option money is not refundable if option is not exercised.",
+                reference: "Civil Code of the Philippines, Art. 1482; jurisprudence"
+            },
+            {
+                term: "Ordinary Income",
+                category: "tax",
+                definition: "Income subject to regular income tax rates, as distinguished from capital gains subject to special rates. Includes compensation, business income, and professional fees.",
+                reference: "NIRC, Sec. 32"
+            },
+            {
+                term: "Original Certificate of Title (OCT)",
+                category: "property",
+                definition: "The first certificate of title issued under the Torrens system upon completion of land registration proceedings. All subsequent titles trace back to the OCT.",
+                reference: "Property Registration Decree (PD 1529)"
+            },
+            {
+                term: "Overdraft",
+                category: "banking",
+                definition: "A credit facility allowing a depositor to withdraw more money than is in the account, up to an agreed limit. Creates a loan that must be repaid with interest.",
+                reference: "Banking practice; loan agreements"
+            },
+            {
+                term: "Ownership",
+                category: "property",
+                definition: "The independent right to the use, enjoyment, and disposal of a thing without limitations except those established by law. Includes rights of possession, use, fruits, and disposal.",
+                reference: "Civil Code of the Philippines, Art. 428"
+            },
+            {
+                term: "Pacto de Retro Sale",
+                category: "property",
+                definition: "A sale with right to repurchase. The seller reserves the right to repurchase the property within a stipulated period by returning the price paid plus expenses. If not exercised, ownership is consolidated in the buyer.",
+                reference: "Civil Code of the Philippines, Art. 1601-1616"
+            },
+            {
+                term: "Par Value",
+                category: "corporate",
+                definition: "The minimum price at which shares may be issued as stated in the articles of incorporation. Shares cannot be issued below par value except in certain circumstances like stock dividends.",
+                reference: "Revised Corporation Code, Sec. 6"
+            },
+            {
+                term: "Partnership",
+                category: "corporate",
+                definition: "A contract whereby two or more persons bind themselves to contribute money, property, or industry to a common fund with the intention of dividing the profits among themselves. May be general or limited.",
+                reference: "Civil Code of the Philippines, Art. 1767-1867"
+            },
+            {
+                term: "Payee",
+                category: "banking",
+                definition: "The person to whom a negotiable instrument is made payable. The payee becomes the holder of the instrument upon delivery.",
+                reference: "Negotiable Instruments Law, Sec. 8"
+            },
+            {
+                term: "Penalty Clause",
+                category: "contract",
+                definition: "A stipulation where the obligor assumes a greater liability in case of breach by way of indemnity for damages. Courts may reduce penalties if unconscionable.",
+                reference: "Civil Code of the Philippines, Art. 1226-1230"
+            },
+            {
+                term: "Percentage Tax",
+                category: "tax",
+                definition: "A business tax imposed on persons or entities whose gross annual sales/receipts do not exceed the VAT threshold or who are exempt from VAT. Generally 3% of gross quarterly sales.",
+                reference: "NIRC, Sec. 116"
+            },
+            {
+                term: "Perfection of Contract",
+                category: "contract",
+                definition: "The moment when the parties agree upon the object and cause of the contract. From this moment, the parties are bound not only to fulfill what has been expressly stipulated but also the consequences thereof.",
+                reference: "Civil Code of the Philippines, Art. 1315, 1319"
+            },
+            {
+                term: "Personal Property",
+                category: "property",
+                definition: "Property which is movable and transportable from place to place. Includes tangible movables and intangible property like shares, patents, and credits.",
+                reference: "Civil Code of the Philippines, Art. 416-417"
+            },
+            {
+                term: "Piercing the Corporate Veil",
+                category: "corporate",
+                definition: "The doctrine allowing courts to disregard the separate juridical personality of a corporation when used to defeat public convenience, justify wrong, protect fraud, or defend crime.",
+                reference: "Revised Corporation Code; jurisprudence"
+            },
+            {
+                term: "Pledge",
+                category: "property",
+                definition: "A contract where the debtor delivers movable property to the creditor as security for a debt or performance of an obligation. The creditor has the right to retain possession until payment.",
+                reference: "Civil Code of the Philippines, Art. 2085, 2093-2123"
+            },
+            {
+                term: "Possession",
+                category: "property",
+                definition: "The holding of a thing or the enjoyment of a right. May be in concept of owner (with intent to own) or in concept of holder (without intent to own). Possession is prima facie evidence of ownership.",
+                reference: "Civil Code of the Philippines, Art. 523-560"
+            },
+            {
+                term: "Power of Attorney",
+                category: "contract",
+                definition: "A written instrument by which a person (principal) authorizes another (agent/attorney-in-fact) to perform specified acts on the principal's behalf. May be general or special.",
+                reference: "Civil Code of the Philippines, Art. 1868-1932"
+            },
+            {
+                term: "Pre-emptive Right",
+                category: "corporate",
+                definition: "The right of stockholders to subscribe to all stock issuances or disposals in proportion to their existing shareholdings. Ensures stockholders can maintain their percentage of ownership.",
+                reference: "Revised Corporation Code, Sec. 38"
+            },
+            {
+                term: "Preliminary Assessment Notice (PAN)",
+                category: "tax",
+                definition: "A notice issued by the BIR informing the taxpayer of proposed tax deficiencies. The taxpayer has 15 days to respond before the Final Assessment Notice is issued.",
+                reference: "NIRC, Sec. 228; Revenue Regulations"
+            },
+            {
+                term: "Preliminary Injunction",
+                category: "contract",
+                definition: "A provisional remedy issued to preserve rights during the pendency of an action, ordering a party to refrain from or to perform a particular act. Requires bond and showing of clear legal right.",
+                reference: "Rules of Court, Rule 58"
+            },
+            {
+                term: "Presentment",
+                category: "banking",
+                definition: "The act of presenting a negotiable instrument to the drawee for acceptance or to the party liable for payment. Necessary for fixing liability of secondary parties.",
+                reference: "Negotiable Instruments Law, Sec. 70-85"
+            },
+            {
+                term: "Prescription",
+                category: "contract",
+                definition: "A mode of acquiring or losing ownership and other real rights through lapse of time. Acquisitive prescription (acquisition); extinctive prescription (loss of right to sue).",
+                reference: "Civil Code of the Philippines, Art. 1106-1155"
+            },
+            {
+                term: "Presumption of Regularity",
+                category: "contract",
+                definition: "The legal presumption that official duty has been regularly performed, transactions are presumed fair and regular, and private transactions have been done with sufficient consideration.",
+                reference: "Rules of Court, Rule 131; Civil Code"
+            },
+            {
+                term: "Pretermitted Heir",
+                category: "property",
+                definition: "A compulsory heir who is omitted entirely from the will without being expressly disinherited. Such omission annuls the institution of heirs but devises and legacies remain valid.",
+                reference: "Civil Code of the Philippines, Art. 854"
+            },
+            {
+                term: "Prima Facie Evidence",
+                category: "contract",
+                definition: "Evidence that, if unrebutted, is sufficient to establish a fact. Creates a rebuttable presumption that shifts the burden of evidence to the opposing party.",
+                reference: "Rules of Court, Rule 133"
+            },
+            {
+                term: "Principal Debtor",
+                category: "contract",
+                definition: "The person primarily liable for the debt or obligation. Distinguished from a guarantor whose liability is subsidiary and conditional upon the principal debtor's default.",
+                reference: "Civil Code of the Philippines, Art. 2047"
+            },
+            {
+                term: "Pro Rata",
+                category: "corporate",
+                definition: "Proportionally; in proportion to shares held or interests owned. Commonly used in dividend distributions, asset distributions, and rights offerings.",
+                reference: "General legal and accounting principle"
+            },
+            {
+                term: "Promissory Note",
+                category: "banking",
+                definition: "An unconditional promise in writing made by one person to another, signed by the maker, engaging to pay on demand or at a fixed or determinable future time a sum certain in money.",
+                reference: "Negotiable Instruments Law, Sec. 184"
+            },
+            {
+                term: "Prospectus",
+                category: "corporate",
+                definition: "A document containing information about securities being offered for sale to the public. Must be registered with SEC and contain full disclosure of material facts.",
+                reference: "Securities Regulation Code, Sec. 8-12"
+            },
+            {
+                term: "Protest",
+                category: "banking",
+                definition: "A formal certificate of dishonor of a negotiable instrument, made by a notary public. Required for foreign bills to hold the drawer and indorsers liable.",
+                reference: "Negotiable Instruments Law, Sec. 152-157"
+            },
+            {
+                term: "Proxy",
+                category: "corporate",
+                definition: "A written authorization by a stockholder allowing another person to vote on his behalf at stockholders' meetings. Must be in writing, dated, and filed before the meeting.",
+                reference: "Revised Corporation Code, Sec. 57"
+            },
+            {
+                term: "Punitive Damages",
+                category: "contract",
+                definition: "Damages imposed by way of example or correction for the public good. Also called exemplary damages. Awarded in addition to moral, temperate, liquidated or compensatory damages.",
+                reference: "Civil Code of the Philippines, Art. 2229-2235"
+            },
+            {
+                term: "Quasi-Contract",
+                category: "contract",
+                definition: "A juridical relation arising from lawful, voluntary, and unilateral acts based on the principle that no one shall unjustly enrich at another's expense. Includes negotiorum gestio and solutio indebiti.",
+                reference: "Civil Code of the Philippines, Art. 2142-2175"
+            },
+            {
+                term: "Quasi-Delict",
+                category: "contract",
+                definition: "An act or omission causing damage to another through fault or negligence, without pre-existing contractual relation. Creates obligation to pay damages. Also called tort.",
+                reference: "Civil Code of the Philippines, Art. 2176-2194"
+            },
+            {
+                term: "Quorum",
+                category: "corporate",
+                definition: "The minimum number of members required to be present to validly transact business. For stockholders' meetings: majority of outstanding capital stock. For board meetings: majority of directors.",
+                reference: "Revised Corporation Code, Sec. 51, 52"
+            },
+            {
+                term: "Real Estate Mortgage",
+                category: "property",
+                definition: "A contract whereby immovable property is given as security for the payment of a debt or performance of an obligation. Must be constituted in a public document and registered.",
+                reference: "Civil Code of the Philippines, Art. 2085, 2124-2131"
+            },
+            {
+                term: "Real Property",
+                category: "property",
+                definition: "Land, buildings, roads, and constructions of all kinds adhered to the soil. Also includes everything attached to immovables in a fixed manner and certain property deemed immovable by law.",
+                reference: "Civil Code of the Philippines, Art. 415"
+            },
+            {
+                term: "Receivership",
+                category: "corporate",
+                definition: "A remedy whereby a court places property or business under the control of a receiver to preserve it pending litigation. Common in insolvent corporations and disputed property.",
+                reference: "Rules of Court, Rule 59; FRIA"
+            },
+            {
+                term: "Redemption",
+                category: "property",
+                definition: "The right to repurchase property that has been sold at execution sale or foreclosure. Redemption period varies: 1 year for judicial foreclosures, none for extrajudicial unless stipulated.",
+                reference: "Rules of Court, Rule 39; Act 3135"
+            },
+            {
+                term: "Redemption Period",
+                category: "property",
+                definition: "The time within which a judgment debtor or mortgagor may redeem foreclosed property by paying the purchase price plus interest and costs. Essential for protecting debtor's rights.",
+                reference: "Rules of Court, Rule 39, Sec. 28-30"
+            },
+            {
+                term: "Registration",
+                category: "property",
+                definition: "The act of recording property transactions in the Registry of Deeds. Necessary for real property to bind third persons and to give constructive notice to the world.",
+                reference: "Property Registration Decree (PD 1529)"
+            },
+            {
+                term: "Relativity of Contracts",
+                category: "contract",
+                definition: "The principle that contracts take effect only between the parties and their assigns. Third persons cannot be bound or benefited except in cases provided by law.",
+                reference: "Civil Code of the Philippines, Art. 1311"
+            },
+            {
+                term: "Replevin",
+                category: "property",
+                definition: "A provisional remedy to recover possession of personal property unlawfully detained. Applicant posts bond and property is seized and delivered to him pending final judgment.",
+                reference: "Rules of Court, Rule 60"
+            },
+            {
+                term: "Repudiation",
+                category: "contract",
+                definition: "The refusal of a party to perform contractual obligations. Anticipatory repudiation occurs before performance is due and gives the innocent party immediate cause of action.",
+                reference: "Civil Code principles; jurisprudence"
+            },
+            {
+                term: "Rescission",
+                category: "contract",
+                definition: "The remedy allowing parties to abrogate a contract for causes existing at the time of its celebration, such as when one party suffers lesion or damage. Subsidiarily applies when no other remedy exists.",
+                reference: "Civil Code of the Philippines, Art. 1380-1389"
+            },
+            {
+                term: "Resolution",
+                category: "contract",
+                definition: "The extinguishment of reciprocal obligations due to non-fulfillment by one of the parties. Differs from rescission in that the cause arises after contract perfection.",
+                reference: "Civil Code of the Philippines, Art. 1191"
+            },
+            {
+                term: "Res Ipsa Loquitur",
+                category: "contract",
+                definition: "The thing speaks for itself. A doctrine in tort law where negligence is inferred from the mere fact that an accident occurred when it would not ordinarily happen without negligence.",
+                reference: "Rules on Evidence; jurisprudence"
+            },
+            {
+                term: "Res Judicata",
+                category: "contract",
+                definition: "A matter already judged. A final judgment on the merits bars another action between the same parties on the same cause of action. Promotes finality and prevents endless litigation.",
+                reference: "Rules of Court, Rule 39, Sec. 47"
+            },
+            {
+                term: "Retained Earnings",
+                category: "corporate",
+                definition: "The accumulated net income of a corporation that has not been distributed as dividends. May be restricted (reserved for specific purposes) or unrestricted (available for dividends).",
+                reference: "Accounting standards; Revised Corporation Code"
+            },
+            {
+                term: "Right of First Refusal",
+                category: "property",
+                definition: "A contractual right allowing a party to purchase property before the owner offers it to third parties. Must be exercised within the stipulated period upon receipt of notice.",
+                reference: "Civil Code principles; contract law"
+            },
+            {
+                term: "Right of Way",
+                category: "property",
+                definition: "An easement allowing passage over another's land. May be acquired by grant, prescription, or when one's estate is landlocked. Compensation must be paid unless otherwise agreed.",
+                reference: "Civil Code of the Philippines, Art. 649-657"
+            },
+            {
+                term: "Securities",
+                category: "corporate",
+                definition: "Shares, bonds, debentures, notes, evidences of indebtedness, or any participation in profit-sharing agreement, investment contracts, and other instruments as may be determined by the SEC.",
+                reference: "Securities Regulation Code, Sec. 3.1"
+            },
+            {
+                term: "Securities Registration",
+                category: "corporate",
+                definition: "The process of registering securities with the SEC before they can be sold to the public. Requires submission of registration statement and prospectus with full disclosure.",
+                reference: "Securities Regulation Code, Sec. 8-12"
+            },
+            {
+                term: "Servient Estate",
+                category: "property",
+                definition: "In an easement, the property that bears the burden of the easement. The owner must refrain from doing something or allow the dominant estate owner to do something on the property.",
+                reference: "Civil Code of the Philippines, Art. 613"
+            },
+            {
+                term: "Set-off",
+                category: "contract",
+                definition: "The compensation or mutual extinction of obligations to the extent they concur. Takes place by operation of law when two persons are creditors and debtors of each other.",
+                reference: "Civil Code of the Philippines, Art. 1278-1290"
+            },
+            {
+                term: "Sheriff's Sale",
+                category: "property",
+                definition: "A public sale of property conducted by a sheriff to satisfy a judgment or mortgage debt. Property is sold to the highest bidder at public auction.",
+                reference: "Rules of Court, Rule 39; Act 3135"
+            },
+            {
+                term: "Simulation",
+                category: "contract",
+                definition: "A contract is simulated when parties do not intend to be bound at all (absolute simulation) or when they conceal their true agreement (relative simulation). Absolutely simulated contracts are void.",
+                reference: "Civil Code of the Philippines, Art. 1345-1346"
+            },
+            {
+                term: "Solutio Indebiti",
+                category: "contract",
+                definition: "A quasi-contract arising when something is received when there is no right to demand it, and it was unduly delivered through mistake. The recipient has the obligation to return it.",
+                reference: "Civil Code of the Philippines, Art. 2154-2163"
+            },
+            {
+                term: "Special Power of Attorney (SPA)",
+                category: "contract",
+                definition: "A written authorization to perform specific acts only. Required for certain transactions like selling real property, borrowing money, or executing contracts.",
+                reference: "Civil Code of the Philippines, Art. 1877-1878"
+            },
+            {
+                term: "Specific Performance",
+                category: "contract",
+                definition: "A remedy compelling the defendant to carry out the terms of the contract. Granted when monetary damages are inadequate, particularly in cases involving unique property or real estate.",
+                reference: "Civil Code of the Philippines, Art. 1165, 1234"
+            },
+            {
+                term: "Standby Letter of Credit",
+                category: "banking",
+                definition: "A bank's commitment to pay a beneficiary if the applicant fails to perform under a contract. Functions as a guarantee rather than a traditional payment mechanism.",
+                reference: "UCP 600; ISP98; banking practice"
+            },
+            {
+                term: "Stock Certificate",
+                category: "corporate",
+                definition: "A written instrument evidencing a stockholder's ownership of shares. Must be signed by authorized officers and recorded in the stock and transfer book.",
+                reference: "Revised Corporation Code, Sec. 63"
+            },
+            {
+                term: "Stock Dividend",
+                category: "corporate",
+                definition: "A dividend paid in additional shares rather than cash. Does not decrease retained earnings to the extent of par value but transfers from surplus to capital stock.",
+                reference: "Revised Corporation Code, Sec. 42"
+            },
+            {
+                term: "Stock Split",
+                category: "corporate",
+                definition: "The division of existing shares into multiple shares, reducing par value proportionately. Does not change total equity or individual stockholders' percentage ownership.",
+                reference: "Corporate finance; SEC regulations"
+            },
+            {
+                term: "Stockholder",
+                category: "corporate",
+                definition: "A person who owns shares of stock in a corporation. Has rights to vote, receive dividends, inspect corporate records, and participate in asset distribution upon dissolution.",
+                reference: "Revised Corporation Code, Sec. 6"
+            },
+            {
+                term: "Subsidiary",
+                category: "corporate",
+                definition: "A corporation more than 50% of the voting stock of which is owned by another corporation (parent company). The parent exercises control over the subsidiary's operations.",
+                reference: "Revised Corporation Code; accounting standards"
+            },
+            {
+                term: "Surety",
+                category: "contract",
+                definition: "A contract where a person (surety) binds himself solidarily with the principal debtor. The surety's liability is direct and primary, unlike a guarantor whose liability is subsidiary.",
+                reference: "Civil Code of the Philippines, Art. 2047"
+            },
+            {
+                term: "Tax Amnesty",
+                category: "tax",
+                definition: "A general pardon to taxpayers allowing them to pay taxes with immunity from civil, criminal, or administrative penalties. Usually covers specific periods and requires compliance conditions.",
+                reference: "NIRC, Sec. 204; specific amnesty laws"
+            },
+            {
+                term: "Tax Assessment",
+                category: "tax",
+                definition: "The official determination by the BIR of the amount of taxes due from a taxpayer. Assessment may be based on tax returns or investigation, and must follow prescribed procedures.",
+                reference: "NIRC, Sec. 203, 228"
+            },
+            {
+                term: "Tax Evasion",
+                category: "tax",
+                definition: "The illegal non-payment or underpayment of taxes through fraud, misrepresentation, or concealment. Distinguished from tax avoidance which uses legal means to minimize tax liability.",
+                reference: "NIRC, Sec. 254-255"
+            },
+            {
+                term: "Tax Protest",
+                category: "tax",
+                definition: "A written objection to a tax assessment filed with the BIR within 30 days. The taxpayer must either pay the tax under protest or file a surety bond.",
+                reference: "NIRC, Sec. 228"
+            },
+            {
+                term: "Tax Refund",
+                category: "tax",
+                definition: "The return of excess taxes paid to the government. Claims must be filed within the prescriptive period, generally within two years from payment or filing of return.",
+                reference: "NIRC, Sec. 204, 229"
+            },
+            {
+                term: "Temperate Damages",
+                category: "contract",
+                definition: "Damages awarded when pecuniary loss has been suffered but its amount cannot be proved with certainty. More than nominal but less than compensatory damages.",
+                reference: "Civil Code of the Philippines, Art. 2224-2225"
+            },
+            {
+                term: "Tender of Payment",
+                category: "contract",
+                definition: "The manifestation by the debtor of his desire to comply with his obligation, offering immediate performance to the creditor. If refused without just cause, may lead to consignation.",
+                reference: "Civil Code of the Philippines, Art. 1256"
+            },
+            {
+                term: "Term Loan",
+                category: "banking",
+                definition: "A loan with a specified repayment schedule and maturity date, usually exceeding one year. Common for capital expenditures, equipment purchases, and business expansion.",
+                reference: "Banking practice; loan agreements"
+            },
+            {
+                term: "Title",
+                category: "property",
+                definition: "Legal evidence of ownership. In real property, refers to the certificate of title issued by the Register of Deeds under the Torrens system, which is conclusive evidence of ownership.",
+                reference: "Property Registration Decree (PD 1529)"
+            },
+            {
+                term: "Torrens System",
+                category: "property",
+                definition: "The system of land registration in the Philippines where the certificate of title is indefeasible, imprescriptible, and binding upon the whole world. Based on the principle of registration.",
+                reference: "Property Registration Decree (PD 1529)"
+            },
+            {
+                term: "Trademark",
+                category: "property",
+                definition: "Any visible sign capable of distinguishing goods or services. Trademark rights are acquired through registration with the Intellectual Property Office and last for 10 years, renewable indefinitely.",
+                reference: "Intellectual Property Code (RA 8293), Sec. 121-170"
+            },
+            {
+                term: "Transfer Certificate of Title (TCT)",
+                category: "property",
+                definition: "A certificate of title issued subsequent to the original certificate. Each transfer of registered land requires issuance of a new TCT in the name of the transferee.",
+                reference: "Property Registration Decree (PD 1529)"
+            },
+            {
+                term: "Transfer Tax",
+                category: "tax",
+                definition: "A local tax imposed by cities and municipalities on the sale, donation, barter, or any other mode of transferring ownership of real property. Rate varies by locality.",
+                reference: "Local Government Code, Sec. 135"
+            },
+            {
+                term: "Treasury Shares",
+                category: "corporate",
+                definition: "Previously issued shares that have been reacquired by the corporation. May be reissued, sold, or retired. Treasury shares have no voting rights and are not entitled to dividends.",
+                reference: "Revised Corporation Code, Sec. 9"
+            },
+            {
+                term: "Trust",
+                category: "property",
+                definition: "A fiduciary relationship whereby one person (trustee) holds property for the benefit of another (beneficiary). May be express (created by intention) or implied (by law).",
+                reference: "Civil Code of the Philippines, Art. 1440-1456"
+            },
+            {
+                term: "Trust Receipt",
+                category: "banking",
+                definition: "A security transaction where a bank releases imported goods to an importer who holds them in trust for the bank and agrees to sell them and remit proceeds or return the goods.",
+                reference: "Trust Receipts Law (PD 115)"
+            },
+            {
+                term: "Ultra Vires",
+                category: "corporate",
+                definition: "Acts beyond the corporate powers expressly or impliedly conferred by law or the articles of incorporation. Such acts are generally void but may bind the corporation under certain circumstances.",
+                reference: "Revised Corporation Code; jurisprudence"
+            },
+            {
+                term: "Underwriting",
+                category: "corporate",
+                definition: "The act of guaranteeing the sale of securities by agreeing to purchase any unsold portion. Investment banks typically underwrite initial public offerings and bond issuances.",
+                reference: "Securities Regulation Code; investment banking practice"
+            },
+            {
+                term: "Undue Influence",
+                category: "contract",
+                definition: "Improper influence which destroys free agency and causes a person to do what he would not otherwise do. Vitiates consent and makes contracts voidable.",
+                reference: "Civil Code of the Philippines, Art. 1337"
+            },
+            {
+                term: "Unjust Enrichment",
+                category: "contract",
+                definition: "The principle that no person should unjustly enrich himself at the expense of another. Forms the basis of quasi-contracts like negotiorum gestio and solutio indebiti.",
+                reference: "Civil Code of the Philippines, Art. 2142"
+            },
+            {
+                term: "Usufruct",
+                category: "property",
+                definition: "The right to enjoy another's property with the obligation to preserve its form and substance, unless authorized otherwise by title or law. The usufructuary has right to fruits but not ownership.",
+                reference: "Civil Code of the Philippines, Art. 562-612"
+            },
+            {
+                term: "Usury",
+                category: "contract",
+                definition: "The charging of excessive or unconscionable interest on a loan. While the Usury Law has been suspended, courts may still reduce unconscionable interest rates.",
+                reference: "Civil Code of the Philippines; RA 7653"
+            },
+            {
+                term: "Value Added Tax (VAT)",
+                category: "tax",
+                definition: "An indirect tax imposed on the sale, barter, exchange, or lease of goods and properties, and on the sale or exchange of services. Standard rate is 12% with various exemptions.",
+                reference: "NIRC, Sec. 105-116"
+            },
+            {
+                term: "Venue",
+                category: "contract",
+                definition: "The place where an action may be instituted and tried. Rules on venue are procedural and may be waived or stipulated by the parties, except for real actions.",
+                reference: "Rules of Court, Rule 4"
+            },
+            {
+                term: "Vested Right",
+                category: "property",
+                definition: "A right that has become fixed and established and is not subject to being divested without the consent of the person to whom it belongs. Protected by the due process clause.",
+                reference: "Constitution; Civil Code principles"
+            },
+            {
+                term: "Voidable Contract",
+                category: "contract",
+                definition: "A contract valid until annulled, where one party's consent is vitiated by mistake, violence, intimidation, undue influence, or fraud. Only the injured party or certain persons may seek annulment.",
+                reference: "Civil Code of the Philippines, Art. 1390-1402"
+            },
+            {
+                term: "Void Contract",
+                category: "contract",
+                definition: "A contract that produces no legal effect from the beginning and cannot be ratified. Includes contracts with illegal cause or object, or those executed by absolutely incapacitated persons.",
+                reference: "Civil Code of the Philippines, Art. 1409"
+            },
+            {
+                term: "Waiver",
+                category: "contract",
+                definition: "The intentional relinquishment of a known right. May be express or implied from conduct. A waiver to be valid must be made with full knowledge of the right waived.",
+                reference: "Civil Code principles; jurisprudence"
+            },
+            {
+                term: "Warranty",
+                category: "contract",
+                definition: "A collateral undertaking in a contract of sale that the seller guarantees certain facts about the thing sold. Includes warranty against eviction and warranty against hidden defects.",
+                reference: "Civil Code of the Philippines, Art. 1547-1581"
+            },
+            {
+                term: "Warranty Against Eviction",
+                category: "contract",
+                definition: "The seller's warranty that the buyer will not be deprived of the whole or part of the thing sold due to a right existing prior to the sale. Seller must defend the buyer's title.",
+                reference: "Civil Code of the Philippines, Art. 1547-1562"
+            },
+            {
+                term: "Warranty Against Hidden Defects",
+                category: "contract",
+                definition: "The seller's warranty that the thing sold is free from hidden defects that render it unfit for intended use or diminish its value. Buyer may demand rescission or price reduction.",
+                reference: "Civil Code of the Philippines, Art. 1561-1581"
+            },
+            {
+                term: "Winding Up",
+                category: "corporate",
+                definition: "The process following dissolution whereby corporate affairs are settled, assets liquidated, debts paid, and remaining assets distributed to stockholders. May be voluntary or involuntary.",
+                reference: "Revised Corporation Code, Sec. 121-135"
+            },
+            {
+                term: "Withholding Tax",
+                category: "tax",
+                definition: "Tax deducted at source from income payments. May be final (no further tax due) or creditable (can be credited against income tax). Withholder remits to BIR.",
+                reference: "NIRC, Sec. 57-58"
+            },
+            {
+                term: "Writ of Execution",
+                category: "contract",
+                definition: "A court order directing the sheriff to enforce a final judgment by seizing and selling the judgment debtor's property to satisfy the judgment.",
+                reference: "Rules of Court, Rule 39"
+            },
+            {
+                term: "Writ of Preliminary Attachment",
+                category: "property",
+                definition: "A provisional remedy whereby property of defendant is seized to prevent dissipation and secure satisfaction of judgment. Requires showing of specific grounds and posting of bond.",
+                reference: "Rules of Court, Rule 57"
+            },
+            {
+                term: "Zero-rated Sales",
+                category: "tax",
+                definition: "Sales subject to 0% VAT rate but the seller can claim input VAT refund. Applies to exports, sales to tax-exempt entities under special laws, and certain transactions.",
+                reference: "NIRC, Sec. 106, 108"
+            },
+            {
+                term: "Zonal Value",
+                category: "tax",
+                definition: "The fair market value of real property as determined by the Bureau of Internal Revenue for purposes of computing capital gains tax, donor's tax, and estate tax.",
+                reference: "NIRC; BIR Revenue Regulations"
+            },
+            {
+                term: "Accommodation Party",
+                category: "banking",
+                definition: "A person who signs a negotiable instrument as maker, acceptor, or indorser without receiving value, for the purpose of lending his name and credit to another party. Liable on the instrument.",
+                reference: "Negotiable Instruments Law, Sec. 29"
+            },
+            {
+                term: "Accretion of Shares",
+                category: "corporate",
+                definition: "The increase in shareholding percentage when other stockholders fail to exercise preemptive rights. Those who subscribe get a larger proportionate ownership.",
+                reference: "Revised Corporation Code, Sec. 38"
+            },
+            {
+                term: "Actual Fraud",
+                category: "contract",
+                definition: "Intentional deception practiced to secure unfair or unlawful gain. Involves false representation, concealment of material facts, or any artifice used to deceive another.",
+                reference: "Civil Code of the Philippines, Art. 1338"
+            },
+            {
+                term: "Alluvion",
+                category: "property",
+                definition: "The soil or sediment deposited through accretion. The alluvion deposited along riverbanks belongs to the riparian owner.",
+                reference: "Civil Code of the Philippines, Art. 457"
+            },
+            {
+                term: "Anti-Money Laundering Act (AMLA)",
+                category: "banking",
+                definition: "Philippine law criminalizing money laundering and requiring covered institutions to implement customer due diligence, record-keeping, and suspicious transaction reporting.",
+                reference: "RA 9160 as amended by RA 10365"
+            },
+            {
+                term: "Articles of Partnership",
+                category: "corporate",
+                definition: "The written contract embodying the agreement of the partners concerning the partnership. Contains capital contributions, profit sharing, management, and other essential terms.",
+                reference: "Civil Code of the Philippines, Art. 1771-1773"
+            },
+            {
+                term: "Assignment of Credit",
+                category: "contract",
+                definition: "The transfer by the creditor of his right to collect from the debtor to a third person (assignee). Does not require debtor's consent but notice is necessary to bind the debtor.",
+                reference: "Civil Code of the Philippines, Art. 1624-1635"
+            },
+            {
+                term: "Bank Guarantee",
+                category: "banking",
+                definition: "A written commitment by a bank to pay a specified amount if the client fails to fulfill contractual obligations. Similar to surety but issued by a financial institution.",
+                reference: "General Banking Law; banking practice"
+            },
+            {
+                term: "Bearer Instrument",
+                category: "banking",
+                definition: "A negotiable instrument payable to bearer or to the order of a fictitious or non-existing person. Negotiated by mere delivery without need for indorsement.",
+                reference: "Negotiable Instruments Law, Sec. 9, 30"
+            },
+            {
+                term: "Beneficial Owner",
+                category: "corporate",
+                definition: "The natural person who ultimately owns or controls the legal entity or on whose behalf a transaction is conducted. Important for anti-money laundering compliance.",
+                reference: "AMLA; Securities Regulation Code"
+            },
+            {
+                term: "Board of Directors",
+                category: "corporate",
+                definition: "The governing body of a corporation elected by stockholders. Exercises corporate powers, conducts business affairs, and controls corporate property. Must be at least 5 but not more than 15 members.",
+                reference: "Revised Corporation Code, Sec. 22"
+            },
+            {
+                term: "Bulk Sales Law",
+                category: "contract",
+                definition: "Requires a merchant to notify creditors before selling a major part of inventory out of the ordinary course of business. Protects creditors from secret dispositions of assets.",
+                reference: "Bulk Sales Law (Act No. 3952)"
+            },
+            {
+                term: "Business Name",
+                category: "corporate",
+                definition: "The name under which a business operates. Sole proprietors and partnerships must register with DTI; corporations use their corporate name registered with SEC.",
+                reference: "Revised Corporation Code; DTI regulations"
+            },
+            {
+                term: "Capital Surplus",
+                category: "corporate",
+                definition: "The excess of consideration received for shares over their par value. Also called additional paid-in capital. Can be used for stock dividends or to write off losses.",
+                reference: "Accounting standards; Revised Corporation Code"
+            },
+            {
+                term: "Cash Dividend",
+                category: "corporate",
+                definition: "Dividend paid in money rather than in stock or property. Must be declared from unrestricted retained earnings and creates a debt from corporation to stockholders.",
+                reference: "Revised Corporation Code, Sec. 42"
+            },
+            {
+                term: "Caveat Emptor",
+                category: "contract",
+                definition: "Let the buyer beware. The principle that buyers must examine goods before purchase and cannot later claim defects that were discoverable. Subject to warranties and consumer protection laws.",
+                reference: "Civil Code principles; Consumer Act"
+            },
+            {
+                term: "Certificate of Indefeasible Title",
+                category: "property",
+                definition: "A certificate of title issued after one year from entry of decree of registration, when the title becomes incontrovertible. Cannot be attacked except in cases of fraud.",
+                reference: "Property Registration Decree, Sec. 32"
+            },
+            {
+                term: "Certiorari",
+                category: "contract",
+                definition: "A special civil action to correct errors of jurisdiction or grave abuse of discretion by a lower court or tribunal. Does not correct errors of judgment.",
+                reference: "Rules of Court, Rule 65"
+            },
+            {
+                term: "Change of Name",
+                category: "corporate",
+                definition: "Amendment of articles of incorporation to change corporate name. Requires board approval, stockholder approval (majority vote), and SEC approval. Does not affect corporate identity or obligations.",
+                reference: "Revised Corporation Code, Sec. 16-17"
+            },
+            {
+                term: "Claim",
+                category: "contract",
+                definition: "A right to payment or to an equitable remedy for breach of performance if the breach gives rise to a right to payment. Foundation for collection suits.",
+                reference: "Civil Code; Rules of Court"
+            },
+            {
+                term: "Clean Hands Doctrine",
+                category: "contract",
+                definition: "He who seeks equity must come with clean hands. A party seeking equitable relief must not be guilty of wrongdoing in the transaction at issue.",
+                reference: "Equity principles; jurisprudence"
+            },
+            {
+                term: "Commodity",
+                category: "contract",
+                definition: "An article of trade or commerce, especially agricultural or mining products. Subject to specific regulations regarding futures trading and price controls.",
+                reference: "Commercial law; Commodity Futures Trading Act"
+            },
+            {
+                term: "Common Carrier",
+                category: "contract",
+                definition: "A person or entity offering transportation services to the general public for compensation. Held to extraordinary diligence and presumed negligent in case of loss or damage.",
+                reference: "Civil Code of the Philippines, Art. 1732-1766"
+            },
+            {
+                term: "Compulsory Heir",
+                category: "property",
+                definition: "An heir who cannot be deprived of his legitime except for causes expressly stated by law. Includes legitimate children, illegitimate children, surviving spouse, and in their absence, legitimate parents.",
+                reference: "Civil Code of the Philippines, Art. 886-903"
+            },
+            {
+                term: "Condition",
+                category: "contract",
+                definition: "A future and uncertain event upon which the effectivity or extinguishment of an obligation or right depends. May be suspensive (suspends effectivity) or resolutory (terminates obligation).",
+                reference: "Civil Code of the Philippines, Art. 1181-1192"
+            },
+            {
+                term: "Condominium",
+                category: "property",
+                definition: "A form of ownership where each unit is individually owned while common areas are co-owned. Governed by the Master Deed, Declaration of Restrictions, and Condominium Act.",
+                reference: "Condominium Act (RA 4726)"
+            },
+            {
+                term: "Consideration",
+                category: "contract",
+                definition: "The cause or reason which moves the contracting parties to enter into the contract. In onerous contracts, it is the prestation or promise of a thing or service by the other party.",
+                reference: "Civil Code of the Philippines, Art. 1350, 1354"
+            },
+            {
+                term: "Constructive Fraud",
+                category: "contract",
+                definition: "Breach of legal or equitable duty which the law declares fraudulent because of its tendency to deceive, even without intent to defraud. Arises from confidential relationships.",
+                reference: "Civil Code principles; jurisprudence"
+            },
+            {
+                term: "Contributory Negligence",
+                category: "contract",
+                definition: "Negligence of the plaintiff which contributed to his injury. May reduce or bar recovery depending on the extent of contribution to the damage.",
+                reference: "Civil Code of the Philippines, Art. 2179"
+            },
+            {
+                term: "Co-ownership",
+                category: "property",
+                definition: "Ownership of an undivided thing or right by two or more persons. Each co-owner has full ownership of his undivided share and may freely alienate, assign, or mortgage it.",
+                reference: "Civil Code of the Philippines, Art. 484-501"
+            },
+            {
+                term: "Corporate Officers",
+                category: "corporate",
+                definition: "Officers elected by the board to manage day-to-day operations. Must include President, Treasurer, and Corporate Secretary. Officers are agents of the corporation.",
+                reference: "Revised Corporation Code, Sec. 24-25"
+            },
+            {
+                term: "Corporate Secretary",
+                category: "corporate",
+                definition: "A mandatory officer who keeps corporate records, minutes of meetings, and stock and transfer book. Must be a resident and citizen of the Philippines.",
+                reference: "Revised Corporation Code, Sec. 24"
+            },
+            {
+                term: "Corporation by Estoppel",
+                category: "corporate",
+                definition: "Persons assuming to act as a corporation knowing it is not incorporated are liable as general partners. Third parties dealing with them in good faith may also hold them liable.",
+                reference: "Revised Corporation Code, Sec. 20"
+            },
+            {
+                term: "Covenant",
+                category: "contract",
+                definition: "A formal agreement or promise, usually in a deed or contract. Restrictive covenants limit land use; loan covenants impose conditions on borrowers.",
+                reference: "Contract law; property law"
+            },
+            {
+                term: "Credit Line",
+                category: "banking",
+                definition: "A flexible loan arrangement allowing a borrower to draw funds up to a maximum amount. Interest is charged only on amounts actually drawn. Common for working capital needs.",
+                reference: "Banking practice; loan agreements"
+            },
+            {
+                term: "Cumulative Preferred Shares",
+                category: "corporate",
+                definition: "Preferred shares where unpaid dividends accumulate and must be paid before any dividends can be paid to common stockholders. Protects preferred stockholders' dividend rights.",
+                reference: "Revised Corporation Code; corporate finance"
+            },
+            {
+                term: "Curable Title",
+                category: "property",
+                definition: "A defective title that can be perfected or cured through registration, prescription, or other legal means. Once cured, becomes valid and marketable.",
+                reference: "Property Registration Decree; jurisprudence"
+            },
+            {
+                term: "Demand Deposit",
+                category: "banking",
+                definition: "Bank deposits payable on demand without prior notice. Includes checking accounts and savings accounts. Banks must maintain reserves against demand deposits.",
+                reference: "General Banking Law; BSP regulations"
+            },
+            {
+                term: "Demand Letter",
+                category: "contract",
+                definition: "A formal written notice demanding payment or performance of an obligation. Often a prerequisite to filing suit and relevant for determining when default occurs.",
+                reference: "Civil Code; Rules of Court"
+            },
+            {
+                term: "Demand Loan",
+                category: "banking",
+                definition: "A loan payable upon demand by the lender. No fixed maturity date, though some require advance notice. Interest typically continues until payment.",
+                reference: "Civil Code of the Philippines, Art. 1933; banking practice"
+            },
+            {
+                term: "Depreciation",
+                category: "tax",
+                definition: "The systematic allocation of the cost of a depreciable asset over its useful life. Allowed as a deduction from gross income for tax purposes.",
+                reference: "NIRC, Sec. 34(F); accounting standards"
+            },
+            {
+                term: "Dishonor",
+                category: "banking",
+                definition: "The refusal to accept or pay a negotiable instrument when duly presented. Notice of dishonor must be given to secondary parties to hold them liable.",
+                reference: "Negotiable Instruments Law, Sec. 83-89"
+            },
+            {
+                term: "Dissenting Stockholder",
+                category: "corporate",
+                definition: "A stockholder who voted against or who gave notice of dissent to certain fundamental corporate changes. May exercise appraisal right to demand payment for shares.",
+                reference: "Revised Corporation Code, Sec. 80"
+            },
+            {
+                term: "Dividend",
+                category: "corporate",
+                definition: "A distribution of profits to stockholders. May be cash, property, or stock dividends. Must be declared from unrestricted retained earnings and cannot impair capital.",
+                reference: "Revised Corporation Code, Sec. 42"
+            },
+            {
+                term: "Documentary Evidence",
+                category: "contract",
+                definition: "Written instruments or any material containing letters, words, numbers, or symbols offered as proof of their contents. Includes contracts, receipts, and other written materials.",
+                reference: "Rules of Court, Rule 130, Sec. 19"
+            },
+            {
+                term: "Drawer",
+                category: "banking",
+                definition: "The person who executes or draws a bill of exchange or check. Orders the drawee to pay a sum of money to the payee or bearer.",
+                reference: "Negotiable Instruments Law, Sec. 126, 185"
+            },
+            {
+                term: "Drawee",
+                category: "banking",
+                definition: "The person (usually a bank) ordered by the drawer to pay the amount stated in a bill of exchange or check. Becomes liable only upon acceptance.",
+                reference: "Negotiable Instruments Law, Sec. 126"
+            },
+            {
+                term: "Due Process",
+                category: "contract",
+                definition: "The constitutional guarantee that no person shall be deprived of life, liberty, or property without due process of law. Includes notice and opportunity to be heard.",
+                reference: "Constitution, Art. III, Sec. 1"
+            },
+            {
+                term: "Duress",
+                category: "contract",
+                definition: "Unlawful constraint exercised upon a person to force him to do an act against his will. Includes actual or threatened violence. Vitiates consent and makes contracts voidable.",
+                reference: "Civil Code of the Philippines, Art. 1335"
+            },
+            {
+                term: "Earnout",
+                category: "corporate",
+                definition: "A provision in business acquisition agreements where part of the purchase price depends on the target company's future performance. Bridges valuation gaps between buyer and seller.",
+                reference: "M&A practice; contract law"
+            },
+            {
+                term: "Effective Date",
+                category: "contract",
+                definition: "The date when a contract or provision becomes operative and binding. May differ from execution date if parties stipulate a different effectivity date.",
+                reference: "Civil Code of the Philippines, Art. 1181"
+            },
+            {
+                term: "Emancipation",
+                category: "property",
+                definition: "The act by which a minor is freed from parental authority. Occurs upon marriage or by parental concession. Affects capacity to contract and manage property.",
+                reference: "Family Code of the Philippines, Art. 233-238"
+            },
+            {
+                term: "Encumbrance",
+                category: "property",
+                definition: "Any right or interest in land which diminishes its value but does not prevent transfer of title. Includes mortgages, liens, easements, and leases. Must be annotated on title.",
+                reference: "Property Registration Decree"
+            }
+        ];
+
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        function renderTerms() {
+            const container = document.getElementById('termsList');
+            const filteredTerms = legalTerms.filter(term => {
+                const matchesFilter = currentFilter === 'all' || term.category === currentFilter;
+                const matchesSearch = term.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                    term.definition.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            if (filteredTerms.length === 0) {
+                container.innerHTML = '<div class="loading">No terms found</div>';
+            } else {
+                container.innerHTML = filteredTerms.map(term => `
+                    <div class="term-card" onclick="showModal('${term.term.replace(/'/g, "\\'")}')">
+                        <div class="term-title">${term.term}</div>
+                        <div class="term-category">${term.category.toUpperCase()}</div>
+                        <div class="term-definition">${term.definition.substring(0, 120)}...</div>
+                    </div>
+                `).join('');
+            }
+
+            updateStats(filteredTerms.length);
+        }
+
+        function updateStats(displayed) {
+            document.getElementById('statsText').textContent = 
+                `Total Terms: ${legalTerms.length} | Displayed: ${displayed}`;
+        }
+
+        function showModal(termName) {
+            const term = legalTerms.find(t => t.term === termName);
+            if (!term) return;
+
+            document.getElementById('modalTitle').textContent = term.term;
+            document.getElementById('modalCategory').textContent = term.category.toUpperCase();
+            document.getElementById('modalDefinition').textContent = term.definition;
+            document.getElementById('modalReference').textContent = term.reference;
+            document.getElementById('termModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('termModal').style.display = 'none';
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            renderTerms();
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.category;
+                renderTerms();
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('termModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        renderTerms();
+    </script>
+</body>
+</html>
